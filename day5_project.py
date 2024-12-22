@@ -12,11 +12,11 @@ nr_numbers = int(input(f"How many numbers would you like?\n"))
 password_characters = []
 # for loop
 # generate random indexes and add the relevant components to the final list
-for i in range(0, nr_letters):
+for i in range(1, nr_letters+1):
     password_characters.append(random.choice(letters))
-for i in range(0, nr_symbols):
+for i in range(1, nr_symbols+1):
     password_characters.append(random.choice(symbols))
-for i in range(0, nr_numbers):
+for i in range(1, nr_numbers+1):
     password_characters.append(random.choice(numbers))
 
 # for the hard version, shuffle the list
