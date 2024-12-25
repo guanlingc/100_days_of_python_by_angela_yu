@@ -1,6 +1,6 @@
 import random
-from hangman_words import word_list
-from hangman_art import stages
+from resource.hangman_words import word_list
+from resource.hangman_art import stages
 # TODO-1: - Update the word list to use the 'word_list' from hangman_words.py
 
 lives = 6
