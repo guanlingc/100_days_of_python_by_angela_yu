@@ -1,0 +1,71 @@
+from resource.art import logo
+print(logo)
+# alphabet list
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+# inputs for the function
+
+def decrypt(enc_text:str, shift_amount:int):
+    og_text = ""
+    for letter in enc_text:
+        shifted_position = (alphabet.index(letter) - shift_amount) % len(alphabet)
+        og_text += alphabet[shifted_position]
+    print(og_text)
+
+def encrypt(og_text:str, shift_amount):
+    encoding = ""
+    for letter in og_text:
+        shifted_position = (alphabet.index(letter) + shift_amount) % len(alphabet)
+        encoding += alphabet[shifted_position]
+    print(encoding)
+
+def caesar(text, shift, direction):
+    if direction == 'encode':
+        encrypt(text, shift)
+    else:
+        decrypt(text, shift)
+
+# caesar(text, shift, direction)
+
+# instructor solution which condenses everything together
+def teacher_caesar(input_text, shift, direction):
+    output_text = ""
+    if direction == 'decode':
+        shift *= -1 # multiplying a value by -1 will flips it sign
+
+    for letter in input_text:
+        shifted_position = (alphabet.index(letter) + shift) % len(alphabet)
+        output_text += alphabet[shifted_position]
+    print(f'Your {direction}d result is {output_text}')
+
+
+def caesar(original_text, shift_amount, encode_or_decode):
+    output_text = ""
+    if encode_or_decode == "decode":
+        shift_amount *= -1
+    for letter in original_text:
+        if letter not in alphabet:
+            output_text += letter
+        else:
+
+            # if letter in alphabet:
+            shifted_position = alphabet.index(letter) + shift_amount
+            shifted_position %= len(alphabet)
+            output_text += alphabet[shifted_position]
+            # else:
+            #     output_text += letter
+    print(f"Here is the {encode_or_decode}d result: {output_text}")
+
+
+# TODO-3: Can you figure out a way to restart the cipher program?
+repeat = True
+while repeat:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+
+    caesar(original_text=text, shift_amount=shift, encode_or_decode=direction)
+
+    restart = input("Type 'yes' if you want to go again. Otherwise type 'no'\n").lower()
+
+    if restart == 'No':
+        repeat = False
