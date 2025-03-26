@@ -69,4 +69,72 @@ while game_continue:
         game_continue = False
           
           
+## improved codebase (with guidance by AI)
+# # This is the higher and lower game
+# import random
+# from resource.higher_lower import logo, vs  # getting the art
+# from resource.higher_lower_game_data import data  # getting the data from a list
+
+# def choose_person(data_list):
+#     """Return a random account from data."""
+#     return random.choice(data_list)
+
+# def format_data(account):
+#     """Format account data into printable format."""
+#     name = account["name"]
+#     description = account["description"]
+#     country = account["country"]
+#     return f"{name}, a {description}, from {country}"
+
+# def check_answer(guess, a_followers, b_followers):
+#     """Check if user's guess is correct and return a boolean."""
+#     if a_followers > b_followers:
+#         return guess == 'a'
+#     else:
+#         return guess == 'b'
+
+# def game():
+#     """Main game function that contains the gameplay loop."""
+#     print(logo)
+#     score = 0
+#     game_continue = True
+#     # Initial selection
+#     person_a = choose_person(data)
+#     person_b = choose_person(data)
+    
+#     while game_continue:
+#         # Make sure we don't compare the same account
+#         while person_a == person_b:
+#             person_b = choose_person(data)
+            
+#         # Display the comparison
+#         print(logo)  
+#         print(f"Compare A: {format_data(person_a)}")
+#         print(vs)
+#         print(f"Compare B: {format_data(person_b)}")
+#         print(f"Current Score: {score}")
         
+#         # Get user input
+#         choice = input("Who has more followers? 'A' or 'B': ").lower()
+        
+#         # Get follower counts
+#         a_followers = person_a["follower_count"]
+#         b_followers = person_b["follower_count"]
+        
+#         # Check answer
+#         if check_answer(choice, a_followers, b_followers):
+#             score += 1
+#             print(f"You are correct! Score = {score}")
+#             # Make B become the new A, and get a new B
+#             person_a = person_b
+#             person_b = choose_person(data)
+#         else:
+#             print(f"""
+#             {person_b['name']} has {b_followers} followers while
+#             {person_a['name']} has {a_followers} followers, you lose!
+#             Your final score is {score}!
+#             """)
+#             game_continue = False
+
+# if __name__ == "__main__":
+#     game()        
