@@ -5,10 +5,7 @@ from resource.higher_lower_game_data import data # getting the data from a list
 
 # function to choose a random person
 def choose_person(data:list):
-    # randint uses literal number and zero index ( so index 0 to index 49)
-    # len(data) = 50, so subtract 1 from it
-    random_index = random.randint(0,(len(data)-1))
-    return data[random_index]
+        return random.choice(data)
 
 def show_person_1():
     print(f"Compare A: {person_1['name']}, a {person_1['description']}, from {person_1['country']}")
@@ -135,6 +132,10 @@ while game_continue:
 #             Your final score is {score}!
 #             """)
 #             game_continue = False
+
+# This line is special. when the script is called directly 
+# python will set variable "__name__" as string "__main__"
+# This means to run the game function only when it is called directly.
 
 # if __name__ == "__main__":
 #     game()        
