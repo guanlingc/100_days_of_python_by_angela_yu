@@ -118,3 +118,5 @@ while machine_in_operation:
     else:
         print(f"Your choice is not available. Please try again")
 
+
+
