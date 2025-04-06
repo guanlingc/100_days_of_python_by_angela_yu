@@ -1,3 +1,5 @@
+import random
+import json
 # a list of 12 dicts
 question_data = [
     {"text": "A slug's blood is green.", "answer": "True"},
@@ -16,3 +18,7 @@ question_data = [
     {"text": "A few ounces of chocolate can to kill a small dog.", "answer": "True"}
 ]
 
+with open("trivia.json") as file:
+    data = json.load(file)
+
+trivia_bank = list(random.sample(data,20))
